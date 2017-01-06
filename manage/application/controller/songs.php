@@ -121,7 +121,7 @@ class Songs extends Controller
         }
 
         // where to go after song has been added
-        header('location: ' . URL . 'songs/index');
+        header('location: ' . URL . 'songs');
     }
 
     /**

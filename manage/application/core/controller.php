@@ -68,6 +68,4 @@ class Controller
         require APP . 'view/'. $vw . '.php';
         require APP . 'view/_templates/footer.php';
     }
-
-
 }

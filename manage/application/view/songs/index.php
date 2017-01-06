@@ -1,5 +1,9 @@
-<main>
-    <div class="container">
+<content>
+    <div id="wrapper">
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
         <h2>You are in the View: application/view/song/index.php (everything in this box comes from that file)</h2>
         <!-- add song form -->
         <div class="box">
@@ -55,6 +59,9 @@
                 </tbody>
             </table>
         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-</main>
+</content>
