@@ -38,6 +38,9 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <!-- CKeditor -->
+    <script src="//cdn.ckeditor.com/4.6.1/basic/ckeditor.js"></script>
+
 </head>
 
 <body>
