@@ -61,9 +61,12 @@ class AboutUs extends Controller
         if (isset($_POST["submit_update_aboutus"])) {
             $data = array(
                 'id' => $_POST["id"], 
+                'title' => $_POST["title"],
                 'story' => $_POST["story"],
                 'metakeyword' => $_POST["metakeyword"],
-                'metadescription' => $_POST["metadescription"]);
+                'metadescription' => $_POST["metadescription"],
+                'modifyby' => $_POST["modifyby"],
+                'modifydate' => $_POST["modifydate"]);
             
             $this->articleModel->updateArticle($data);
         }

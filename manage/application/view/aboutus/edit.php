@@ -1,3 +1,9 @@
+<!-- 
+    /**
+     * View : aboutus/edit
+     * This method handles what happens when you move to http://yourproject/aboutus/edit
+     */
+ -->
 <content>
 	<div id="wrapper">
 		<div id="page-wrapper">
@@ -8,25 +14,25 @@
 				        <form role="form" action="<?php echo URL; ?>aboutus/update" method="POST">
 							<div class="form-group">
                                 <label>Content</label>
-                                <textarea class="form-control" name="story" rows="5"><?php echo htmlspecialchars($this->aboutus[0]->story, ENT_QUOTES, 'UTF-8'); ?>
-                                </textarea>
+                                <textarea class="form-control" name="story" rows="5"><?php echo htmlspecialchars($this->aboutus[0]->story, ENT_QUOTES, 'UTF-8'); ?></textarea>
                                 <script>
 						            CKEDITOR.replace( 'story' );
 						        </script>
                             </div>
 							<div class="form-group">
-                                <label>Meta Description</label>
-                                <textarea class="form-control" name="metadescription" rows="3"><?php echo htmlspecialchars($this->aboutus[0]->metadescription, ENT_QUOTES, 'UTF-8'); ?>
-                                </textarea>
+                                <label>Description : <small>[meta]</small></label>
+                                <textarea class="form-control" name="metadescription" rows="3"><?php echo htmlspecialchars($this->aboutus[0]->metadescription, ENT_QUOTES, 'UTF-8'); ?></textarea>
                             </div>   
 							<div class="form-group">
-                                <label>Meta Keyword :</label>
+                                <label>Keyword : <small>[meta]</small></label>
                                 <input  class="form-control" name="metakeyword" value="<?php echo htmlspecialchars($this->aboutus[0]->metakeyword, ENT_QUOTES, 'UTF-8'); ?>" required />
-                            </div>
-                                                                                 
+                            </div>                                                                                
 				            <div class="form-group">
-				            <input type="hidden" name="id" value="<?php echo $this->aboutus[0]->id; ?>" />
-				            <input type="submit" name="submit_update_aboutus" value="Update" />
+					            <input type="hidden" name="id" value="<?php echo $this->aboutus[0]->id; ?>" />
+					            <input type="hidden" name="title" value="<?php echo $this->aboutus[0]->title; ?>" />
+					            <input type="hidden" name="modifyby" value="test" />
+                                <input type="hidden" name="modifydate" value="<?php echo date('Y/m/d'); ?>" />
+					            <input type="submit" name="submit_update_aboutus" value="Update" class="btn btn-sm btn-success"/>
                             </div>
 				        </form>	    
 					</div>

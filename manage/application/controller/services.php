@@ -19,17 +19,13 @@ class Services extends Controller
 
 	function __construct()
 	{
-		// set html meta
-		$this->titlePage = "Our Services";
-		$this->metaDescription = $this->metaDescription . " Services";
-
 		// load Module
 		$this->serviceModel = $this->loadModel('Article');  
 	}
 
     /**
      * PAGE: index
-     * This method handles what happens when you move to http://yourproject/services/index
+     * This method handles what happens when you move to http://yourproject/manage/services/index
      */
 	public function index()
 	{
@@ -41,23 +37,109 @@ class Services extends Controller
 	}
 
     /**
-     * PAGE: info
-     * This method handles what happens when you move to http://yourproject/services/info/{{title}}
+     * PAGE: services/detail/{$article_id}
+     * This method handles what happens when you move to http://yourproject/manage/services/detail/{$article_id}
      */
-	public function detail($title='all')
+	public function detail($article_id=0)
 	{
-		// replace - on URL
-		$title = str_replace('-' , ' ', $title);
-		
-		// get article by Title
-		$this->services = $this->serviceModel->getArticleByTitle($title);
-		
-		// set HTML Meta
-		$this->titlePage = $title;
-		$this->metaDescription = $this->metaDescription . " " . $title;
+		if (isset($article_id)) {
+			// get article by Title
+			$this->service = $this->serviceModel->getArticleByID($article_id);
 
-		// load view 
-		$this->loadView('services/detail');
-		
+			// load view 
+			$this->loadView('services/detail');	
+		}else{ header('location: ' . URL ); }
 	}
+
+    /**
+     * PAGE: services/addnew
+     * This method handles what happens when you move to http://yourproject/manage/services/addnew
+     */
+    public function addNew()
+    {
+	    $this->loadView('services/addNew');  	
+    }
+
+
+	/**
+     * PAGE: services/save
+     * This method handles what happens when you move to http://yourproject/manage/services/save
+     */
+    public function save()
+    {
+        if (isset($_POST["submit_add_service"])) {
+           $data = array(
+                'category' => $_POST["category"],
+                'title' => $_POST["title"],
+                'story' => $_POST["story"],
+                'metakeyword' => $_POST["metakeyword"],
+                'metadescription' => $_POST["metadescription"],
+                'createby' => $_POST["createby"],
+                'createdate' => $_POST["createdate"],
+                'modifyby' => $_POST["createby"],
+                'modifydate' => $_POST["createdate"]);
+            
+            $this->serviceModel->addArticle($data);
+        }
+
+        // where to go after song has been added
+        header('location: ' . URL . 'services');
+    }
+
+
+
+    /**
+     * PAGE: services/edit/{$article_id}
+     * This method handles what happens when you move to http://yourproject/manage/services/edit/{$id}
+     */
+    public function edit($article_id=0)
+    {
+    	if (isset($article_id)) {
+	        // get article Article
+	        $this->service = $this->serviceModel->getArticleByID($article_id);
+
+	        // load view
+	        $this->loadView('services/edit');
+    	}else{ header('location: ' . URL ); }
+    }
+
+    /**
+     * PAGE: services/update
+     * This method handles what happens when you move to http://yourproject/manage/aboutus/update
+     */
+    public function update()
+    {
+        // if submit has been click
+        if (isset($_POST["submit_update_aboutus"])) {
+            $data = array(
+                'id' => $_POST["id"], 
+                'title' => $_POST["title"],
+                'story' => $_POST["story"],
+                'metakeyword' => $_POST["metakeyword"],
+                'metadescription' => $_POST["metadescription"],
+                'modifyby' => $_POST["modifyby"],
+                'modifydate' => $_POST["modifydate"]);
+            
+            $this->serviceModel->updateArticle($data);
+        }
+
+        // where to go after about us has been updated
+        header('location: ' . URL . 'services');
+    }
+
+    /**
+     * PAGE: services/delete
+     * This method handles what happens when you move to http://yourproject/manage/aboutus/update
+     */    
+    public function delete($article_id)
+    {
+        // if we have an id of a song that should be deleted
+        if (isset($article_id)) {
+            // do deleteSong() in model/model.php
+            $this->serviceModel->deleteArticle($article_id);
+        }
+
+        // where to go after song has been deleted
+        header('location: ' . URL . 'services');
+    }
 }

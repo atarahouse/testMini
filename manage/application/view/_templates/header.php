@@ -63,13 +63,10 @@
                     <a href="<?php echo URL; ?>"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                 </li>
                 <li>
-                    <a href="<?php echo URL; ?>songs"><i class="fa fa-fw fa-bar-chart-o"></i> songs</a>
+                    <a href="<?php echo URL; ?>services"><i class="fa fa-fw fa-tasks"></i> Services</a>
                 </li>
                 <li>
-                    <a href="<?php echo URL; ?>services"><i class="fa fa-fw fa-table"></i> Services</a>
-                </li>
-                <li>
-                    <a href="<?php echo URL; ?>aboutus"><i class="fa fa-fw fa-edit"></i> About Us</a>
+                    <a href="<?php echo URL; ?>aboutus"><i class="fa fa-fw fa-building"></i> About Us</a>
                 </li>
             </ul>
         </div>
