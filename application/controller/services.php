@@ -41,7 +41,7 @@ class Services extends Controller
 	}
 
     /**
-     * PAGE: info
+     * PAGE: details
      * This method handles what happens when you move to http://yourproject/services/info/{{title}}
      */
 	public function detail($title='all')
@@ -58,6 +58,24 @@ class Services extends Controller
 
 		// load view 
 		$this->loadView('services/detail');
-		
+	}
+
+    /**
+     * PAGE: sitemap
+     * This method handles what happens when you move to http://yourproject/services/sitemap
+     * @param array $data
+     */
+	public function sitemap()
+	{
+		require APP . 'libs/smgen.php';
+
+		$this->services = $model->getArticleByCategory('services')
+
+        $urlPrefix = "http:" . URL . 'services/';
+        $W3C_datetime_format_php = 'Y-m-d\Th:i:s';
+          
+ 		$data = null;
+ 		// generate Site Map
+ 		SmGen::generateSM($data);
 	}
 }
