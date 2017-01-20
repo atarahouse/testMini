@@ -25,8 +25,7 @@
                             </div>
 							<div class="form-group">
                                 <label>Description : <small>[meta]</small></label>
-                                <textarea class="form-control" name="metadescription" rows="3"><?php echo htmlspecialchars($this->service->metadescription, ENT_QUOTES, 'UTF-8'); ?>
-                                </textarea>
+                                <textarea class="form-control" name="metadescription" rows="3"><?php echo htmlspecialchars($this->service->metadescription, ENT_QUOTES, 'UTF-8'); ?></textarea>
                             </div>   
 							<div class="form-group">
                                 <label>Keyword : <small>[meta]</small></label>

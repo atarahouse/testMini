@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <sitemap>
-    <loc>http://localhost/testmini/sitemap-main.xml</loc>
-  </sitemap>
-  <sitemap>
-    <loc>http://localhost/testmini/services/sitemap</loc>
-  </sitemap>
-  <sitemap>
-    <loc>http://localhost/testmini/blog/sitemap</loc>
-  </sitemap>
+<sitemapindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/siteindex.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">	
+	<sitemap>
+		<loc>http://localhost/testmini/sitemap-main.xml</loc>
+		<lastmod>2017-01-04T08:20:18+00:00</lastmod>
+	</sitemap>
+	<sitemap>
+		<loc>http://localhost/testmini/services/sitemap</loc>
+		<lastmod>2017-01-04T08:20:18+00:00</lastmod>
+	</sitemap>
+	<sitemap>
+		<loc>http://localhost/testmini/blog/sitemap</loc>
+		<lastmod>2017-01-04T08:20:18+00:00</lastmod>
+	</sitemap>
 </sitemapindex>

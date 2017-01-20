@@ -67,15 +67,28 @@ class Services extends Controller
      */
 	public function sitemap()
 	{
+
 		require APP . 'libs/smgen.php';
+		
+		$this->services = $this->serviceModel->getArticleByCategory('services');
 
-		$this->services = $model->getArticleByCategory('services')
-
-        $urlPrefix = "http:" . URL . 'services/';
+        $urlPrefix = "http:" . URL . 'services/detail/';
         $W3C_datetime_format_php = 'Y-m-d\Th:i:s';
           
- 		$data = null;
+ 		$data = array();
+		
+        if (isset($this->services))
+        {
+            foreach ($this->services as $page)
+            {
+            	$urlPage=$urlPrefix . str_replace(' ' , '-', $page->title);
+            	$data[$page->id] = array('url'=>$urlPage,
+            					'lastmod'=>$page->modifydate);
+            }
+        }
  		// generate Site Map
+ 		// to generate sitemap Index = SmGen::generateSM($data,"SMI");
+ 		// yo generate sitemap URL := SmGen::generateSM($data);
  		SmGen::generateSM($data);
 	}
 }
