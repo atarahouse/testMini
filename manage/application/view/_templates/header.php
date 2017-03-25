@@ -20,7 +20,7 @@
     <link href="<?php echo URL; ?>css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="<?php echo URL; ?>css/sb-admin.css" rel="stylesheet">
+    <link href="<?php echo URL; ?>css/manage.css" rel="stylesheet">
 
     <!-- Morris Charts CSS -->
     <!-- <link href="css/plugins/morris.css" rel="stylesheet"> -->
